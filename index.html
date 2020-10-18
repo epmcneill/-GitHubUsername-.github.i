@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+<!-- Note: All photos are mine, so no sources are specified -->
 
 <head>
+<!-- Link to stle sheet used for both pages -->
 <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
@@ -14,12 +16,14 @@
 </div>
 
 <!-- Naviagation bar -->
+<!-- Home page and Photography page -->
 <div class="navigation">
 	<a href="index.html">Home</a>
 	<a href="photography.html">Photography</a>
 </div>
 
 <!-- About me block -->
+<!-- Same general structure used throughout the website. h2 is put outside of other divs so it is above and center. See CSS stylesheet for divided class -->
 <div class="section">
 	<h2>About Me</h2>
 	<div class="divided">
@@ -36,6 +40,9 @@
 	</div>
 </div>
 
+<!-- Select projects blocks -->
+<!-- Same general structure as about me section. h3 tag used for names of projects (put inside same div as p so the alignment looks good beside the image) -->
+<!-- Block structure repeated for every project -->
 <div class="section" id="projects">
 	<h2>Select Projects</h2>
 	<div class="divided">
@@ -103,6 +110,9 @@
 	</div>
 </div>
 
+<!-- Even more about me block -->
+<!-- Uses 2 classes (section and links). section does the sizing work while links does the colour (overrides some things) and text alignment -->
+<!-- Multiple classes technique learned from https://css-tricks.com/multiple-class-id-selectors/ -->
 <div class="section links">
 	<h2>Even More About Me</h2>
 	<!-- Open a link in a new tab https://www.w3schools.com/tags/att_a_target.asp -->
