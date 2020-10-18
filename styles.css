@@ -1,12 +1,15 @@
+/* font family and margin size for all of body, unless a more specific one is defined in a class */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
 }
 
+/* Font family for a h tags used. More efficeint to store the common attributes here than typing it out separately for each. Technique learned from https://www.lifewire.com/grouping-multiple-css-selectors-3467065 */
 h1, h2, h3 {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
+/* Style for h1 tags. h1 tag only used for the title block */
 h1 {
 	font-size: 50px;
 	text-align: center;
@@ -15,6 +18,7 @@ h1 {
     padding-top: 100px;
 }
 
+/* Style for h2 tags. h2 tags used for main section titles. Rounded corners used in many places and technique learned from https://www.w3schools.com/css/css3_borders.asp */
 h2 {
 	font-size: 30px;
     text-align: center;
@@ -23,24 +27,29 @@ h2 {
     border-radius: 25px;
 }
 
+/* Style for h3 tags. h3 tags used for project names */
 h3 {
     font-size: 23px;
 }
 
+/* Text shadow formatting applies to both h1 tag and the titlep class. More efficient to store the common attributes here than typing it out separately in both */
 h1, .titlep {
     text-shadow: 0 0 5px #ffffff;
 }
 
+/* Formatting for all p tags, unless a more specific one is defined in a class */
 p {
 	font-size: 20px;
 }
 
+/* Style for just the paragraph in the title block */
 .titlep {
 	font-size: 25px;
 	text-align: center;
 	margin-top: 5px
 }
 
+/* Style for background of my title block. A single image is used. Setting size to cover fills the entire div. 57% y seemed like a good fit for the photo. Some padding added on bottom for better spacing */
 .titlebg {
 	background-image: url("../Images/DSC_1373.JPG");
     background-size: cover;
@@ -58,43 +67,51 @@ p {
     border-radius: 25px;
 }
 
-/* Technique learned from https://stackoverflow.com/questions/20391156/multiple-lines-of-text-next-to-image-css-html */
+/* Technique of applying specific properties to specific selectors within a class learned from https://stackoverflow.com/questions/20391156/multiple-lines-of-text-next-to-image-css-html */
 .section img {
 	border-radius: 25px;
 }
 
+/* Style for images on index page. Setting a fixed width helps standardize the look and appears much neater */
 .p1image {
     width: 350px;
 	margin-right: 20px;
 }
 
-/* Flexbox display technique from https://www.w3schools.com/css/css3_flexbox.asp */
+/* Images and and text contained in the same divided class have display flex. Amazing for keeping everthing in line with eachother. Flex display technique from https://www.w3schools.com/css/css3_flexbox.asp */
+/* Initially learned from https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
 .divided {
     display: flex;
     margin-bottom: 30px;
 }
 
+/* Navigation bar style */
 .navigation {
     background-color: #eeeeee;
     text-align: center;
     padding: 10px;
 }
 
+/* Specific styling of anchors within the navigation class div. Some extra margin added to right for better spacing */
 .navigation a {
     color: #555555;
     margin-right: 20px;
 }
 
+/* Style for photos on page 2. Large images desired for a gallery type of feel */
 .p2photo {
     width: 100%;
 }
 
+/* Even more about me styling. Gave it a different background and border colour since the contents in the div are very different */
+/* Selecting colours much easier when using Visual Studio Code! */
 .links {
     background-color: #e0e0ff;
     border-color: #4848c5;
     text-align: center;
 }
 
+/* Specific styling of anchors within the links class div. Some extra margin added to left and right sides so the spacing looks better. Colour matches the theme of the website */
 .links a {
+    color: #555555;
     margin: 0 20px 0 20px;
-}
