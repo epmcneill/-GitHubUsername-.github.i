@@ -1,0 +1,1 @@
+https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJG2Zn419eLogRKrn54xi4Ves&fields=name,photos,vicinity&key=AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- New title for the new location -->
+    <title>Saint Helena</title>
+    <!-- Polyfill attempts to load missing features from older browsers to maintain functionailty -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- Shawn's API key inserted -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <style type="text/css">
+    /* Default height was used from the example */
+      #map {
+        height: 100%;
+      }
+
+    /* Optional height filling the entire div was used */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+    /* lat and lng were adjusted to center on Saint Helena with an appropriate zoom level */
+      let map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -15.965, lng: -5.709 },
+          zoom: 13,
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+</html>
