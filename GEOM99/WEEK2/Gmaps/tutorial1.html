@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>Location of last degree</title>
+
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE&callback=initMap&libraries=&v=weekly"defer>
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script>
+            // Initialize and add the map
+            function initMap() {
+            // The location of UoG
+            const uog = { lat: 43.5327, lng: -80.2262 };
+            // The map, centered at UoG
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: uog,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: uog,
+                map: map,
+            });
+            }
+        </script>
+        
+  </head>
+
+  <body>
+    <h3>My Google Maps Demo - University of Guelph</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+  </body>
+
+  
+</html>
