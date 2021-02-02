@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <!-- Title -->
+        <title>DOTA2 The International Tournaments</title>
+
+        <!-- Thought it best to throw this in just in case older browesers are used -->
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+        <!-- Using Shawn's API key -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE&callback=initMap&libraries=&v=weekly"defer></script>
+
+        <script>
+            // Inspiration from: https://developers.google.com/maps/documentation/javascript/examples/marker-simple
+            // and https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple#all
+            // and https://developers.google.com/maps/documentation/javascript/shapes#polylines
+            // and https://developers.google.com/maps/documentation/javascript/symbols
+            // I decided to go for the simplest coding style. Each marker and its information window are created individually.
+            // Polylines were also created individually, but I suppose this was fine since I wanted each to have a different colour.
+            // In the future it would be ideal to do this from a list like in the tutorials.
+            let map;
+
+            function initMap() {
+                // I don't believe I need to make all of these constants. I could just input the lat and lng in the marker position property instead.
+                // However, it did come in handy for setting the start and end points of the polylines.
+                const cologneL = { lat: 50.9375, lng: 6.9603 };
+                const seattleL = { lat: 47.6062, lng: -122.3321 };
+                const vancouverL = { lat: 49.2827, lng: -123.1207 };
+                const shanghaiL = { lat: 31.2304, lng: 121.4737 };
+                map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 2,
+                center: { lat: 44, lng: 10 },
+                mapTypeId: "satellite",
+                });
+
+                // Creating a constant for the line with arrow symbol on end from google. This is used when setting the icon in the next step.
+                const lineStyle = {
+                    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+                };
+
+                // Polyline creation.
+                // I'll admit, the icons section confuses me. I thought I could simply just use the icon part, but apparently the rest of it is needed (need to look in to this in more detail)
+                const line1 = new google.maps.Polyline({
+                    path: [cologneL, seattleL],
+                    icons: [
+                    {
+                    icon: lineStyle,
+                    offset: "100%",
+                    }],
+                    strokeColor: "#BBF915",
+                    strokeWeight: 2,
+                    strokeOpacity: 1.0,
+                    map: map,
+                })
+
+                const line2 = new google.maps.Polyline({
+                    path: [seattleL, vancouverL],
+                    icons: [
+                    {
+                    icon: lineStyle,
+                    offset: "100%",
+                    }],
+                    strokeColor: "#F9BE15",
+                    strokeWeight: 2,
+                    strokeOpacity: 1.0,
+                    map: map,
+                })
+
+                // This one looks funky! I guess that's the shortest distance from Vancouver to Shanghai.
+                const line3 = new google.maps.Polyline({
+                    path: [vancouverL, shanghaiL],
+                    icons: [
+                    {
+                    icon: lineStyle,
+                    offset: "100%",
+                    }],
+                    strokeColor: "#F94215",
+                    strokeWeight: 2,
+                    strokeOpacity: 1.0,
+                    map: map,
+                })
+                
+                // Marker creation using the constants above to define their postition.
+                const marker1 = new google.maps.Marker({
+                    position: cologneL,
+                    map: map,
+
+                });
+
+                const marker2 = new google.maps.Marker({
+                    position: seattleL,
+                    map: map,
+
+                });
+
+                const marker3 = new google.maps.Marker({
+                    position: vancouverL,
+                    map: map,
+
+                });
+
+                const marker4 = new google.maps.Marker({
+                    position: shanghaiL,
+                    map: map,
+
+                });
+                
+                // Content to fill information windows. It's just a string, but it uses tags that adopt their styles from my embedded css.
+                const cologneContent = 
+                    '<div><h2>Cologne, Germany</h2></div>' +
+                    '<div><b>Year(s):</b> 2011</div>' +
+                    '<div><b>Prize Pool:</b> $1,600,000</div>' +
+                    '<div><b>Winner:</b> Natus Vincere</div>';
+
+                const seattleContent = 
+                    '<div><h2>Seattle, USA</h2></div>' +
+                    '<div><b>Year(s):</b> 2012 - 2017</div>' +
+                    '<div><b>Prize Pool:</b> $1,600,000 - $24,787,916</div>' +
+                    '<div><b>Winners:</b> Invictus Gaming (2012), Alliance (2013), Newbee (2014), Evil Geniuses (2015), Wings Gaming (2016), Team Liquid (2017)</div>';
+
+                const vancouverContent = 
+                    '<div><h2>Vancouver, Canada</h2></div>' +
+                    '<div><b>Year(s):</b> 2018</div>' +
+                    '<div><b>Prize Pool:</b> $25,532,177</div>' +
+                    '<div><b>Winner:</b> OG</div>';
+
+                const shanghaiContent = 
+                    '<div><h2>Shanghai, China</h2></div>' +
+                    '<div><b>Year(s):</b> 2019</div>' +
+                    '<div><b>Prize Pool:</b> $34,330,068</div>' +
+                    '<div><b>Winner:</b> OG</div>';
+                
+                // Information window creation. The content that fills it is specified by the constant in content property.
+                const cologneIW = new google.maps.InfoWindow({
+                    content: cologneContent,
+                });
+
+                const seattleIW = new google.maps.InfoWindow({
+                    content: seattleContent,
+                });
+
+                const vancouverIW = new google.maps.InfoWindow({
+                    content: vancouverContent,
+                });
+
+                const shanghaiIW = new google.maps.InfoWindow({
+                    content: shanghaiContent,
+                });
+
+                // Click activation functionality for IW's to pop up. Could also spend some time adding the function to close them when clicked again.
+                marker1.addListener("click", () => {
+                    cologneIW.open(map, marker1)
+                });
+
+                marker2.addListener("click", () => {
+                    seattleIW.open(map, marker2)
+                });
+
+                marker3.addListener("click", () => {
+                    vancouverIW.open(map, marker3)
+                });
+
+                marker4.addListener("click", () => {
+                    shanghaiIW.open(map, marker4)
+                });
+            }
+        </script>
+
+        <!-- Embedded CSS -->
+        <style type="text/css">
+
+            /* Image source: https://www.reddit.com/r/DotA2/comments/bo954q/petition_to_replace_the_current_aegis_image_in/ */
+            .titleBanner {
+                background-image: url("Images/dota2banner.jpg");
+                background-size: cover;
+                background-position-x: center;
+                background-position-y: 50%;
+                height: 300px;
+                text-align: center;
+            }
+
+            h1 {
+                margin-top: 0;
+                padding-top: 50px;
+                margin-bottom: 0px;
+                font-size: 60px;
+                text-shadow: 0 0 10px #000000;
+                color: #ffffff;
+            }
+
+            .title1 {
+                font-family: "Cursive", Brush Script MT;
+                font-size: 50px;
+                margin-top: 10px;
+                margin-bottom: 0px;
+                text-shadow: 0 0 10px #000000;
+                color: #ffffff;
+            }
+
+            .title2 {
+                font-size: 30px;
+                text-shadow: 0 0 10px #000000;
+                color: #ffffff;
+            }
+
+            .mainP {
+                font-size: 20px;
+                color: #ffffff;
+            }
+
+            .introPara {
+                text-align: center;
+                width: 1025px;
+                margin: 0px auto 0px auto;
+            }
+
+            h2 {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            html, body {
+                margin: 0;
+                padding: 0;
+                background-color: #000000
+            }
+
+            /* No scaling with window size for now (apart from left and right margins). Just want to focus on getting things working */
+            #map {
+                height: 700px;
+                width: 1025px;
+                margin: 0px auto 100px auto;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="titleBanner">
+            <h1>Dota 2</h1>
+            <p class="title1">The International</p>
+            <p class="title2">A History</p>
+        </div>
+
+        <div class="introPara">
+            <p class="mainP">Every year, The International attracts DOTA 2's most dedicated competitors to compete for ultimate glory (and a lot of money). The Valve hosted event
+                is said to have kickstated the now mainstream modern Esports phenomena. What used to be individual players competing for better rankings are now official teams
+                 complete with sponsorships and strict training regimens competeing for fortune. Every year since The International's inception in 2011, the prize pool has grown
+                  and is expected to surpass $35,000,000 USD in 2021. Please take a look in the map below for information on all past The International tournaments by clicking
+                   on the markers!
+            </p>
+        </div>
+
+        <div id="map"></div>
+
+    </body>
+
+</html>
