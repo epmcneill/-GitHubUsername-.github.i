@@ -16,7 +16,7 @@ h1 {
 	text-align: center;
 	margin-top: 0;
 	margin-bottom: 5px;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 /* Style for h2 tags. h2 tags used for main section titles. Rounded corners used in many places and technique learned from https://www.w3schools.com/css/css3_borders.asp */
@@ -53,10 +53,8 @@ p {
 
 /* Style for background of my title block. A single image is used. Setting size to cover fills the entire div. 57% y seemed like a good fit for the photo. Some padding added on bottom for better spacing */
 .titlebg {
-	background-image: url("../Images/DSC_1373.JPG");
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: 57%;
+	background-image: url("../Images/stressed_linen.png");
+    height: 150px;
     padding-bottom: 60px;
 }
 
@@ -81,7 +79,7 @@ p {
 }
 
 /* Technique of applying specific properties to specific selectors within a class learned from https://stackoverflow.com/questions/20391156/multiple-lines-of-text-next-to-image-css-html */
-.section2 img {
+.section img, .section2 img {
 	border-radius: 25px;
 }
 
