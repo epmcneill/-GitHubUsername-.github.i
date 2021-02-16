@@ -1,0 +1,192 @@
+/* font family and margin size for all of body, unless a more specific one is defined in a class */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-image: url("../Images/triangular.png");
+}
+
+/* Font family for a h tags used. More efficeint to store the common attributes here than typing it out separately for each. Technique learned from https://www.lifewire.com/grouping-multiple-css-selectors-3467065 */
+h1, h2, h3, .titlep {
+    font-family: Verdana;
+}
+
+/* Style for h1 tags. h1 tag only used for the title block */
+h1 {
+	font-size: 50px;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 5px;
+    padding-top: 100px;
+}
+
+/* Style for h2 tags. h2 tags used for main section titles. Rounded corners used in many places and technique learned from https://www.w3schools.com/css/css3_borders.asp */
+h2 {
+	font-size: 30px;
+    text-align: center;
+    margin: 0 0 20px 0;
+    background-color: #eeeeee;
+    border-radius: 25px;
+}
+
+/* Style for h3 tags. h3 tags used for project names */
+h3 {
+    font-size: 23px;
+}
+
+/* Text shadow formatting applies to both h1 tag and the titlep class. More efficient to store the common attributes here than typing it out separately in both */
+h1, .titlep {
+    text-shadow: 0 0 5px #000000;
+    color: white;
+}
+
+/* Formatting for all p tags, unless a more specific one is defined in a class */
+p {
+	font-size: 20px;
+}
+
+/* Style for just the paragraph in the title block */
+.titlep {
+	font-size: 25px;
+	text-align: center;
+	margin-top: 5px
+}
+
+/* Style for background of my title block. A single image is used. Setting size to cover fills the entire div. 57% y seemed like a good fit for the photo. Some padding added on bottom for better spacing */
+.titlebg {
+	background-image: url("../Images/DSC_1373.JPG");
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 57%;
+    padding-bottom: 60px;
+}
+
+/* Centering using auto margin https://www.w3schools.com/css/css_margin.asp */
+.section {
+	width: 1500px;
+    margin: 20px auto 20px auto;
+	border: 5px solid grey;
+	padding: 10px;
+    border-radius: 25px;
+    background-color: white;
+}
+
+/* Created a new parent div section for photography page because of new functionality */
+.section2 {
+	width: 405px;
+    margin: 20px auto 20px auto;
+	border: 5px solid grey;
+	padding: 10px;
+    border-radius: 25px;
+    background-color: white;
+}
+
+/* Technique of applying specific properties to specific selectors within a class learned from https://stackoverflow.com/questions/20391156/multiple-lines-of-text-next-to-image-css-html */
+.section2 img {
+	border-radius: 25px;
+}
+
+/* Style for images on index page. Setting a fixed width helps standardize the look and appears much neater */
+.p1image {
+    width: 350px;
+	margin-right: 20px;
+}
+
+/* Images and and text contained in the same divided class have display flex. Amazing for keeping everthing in line with eachother. Flex display technique from https://www.w3schools.com/css/css3_flexbox.asp */
+/* Initially learned from https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+.divided {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+/* Navigation bar style */
+.navigation {
+    background-color: #eeeeee;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Specific styling of anchors within the navigation class div. Some extra margin added to right for better spacing */
+.navigation a {
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin-right: 20px;
+    background-color: rgb(51, 51, 51);
+    border-radius: 25px;
+    padding: 3px 7px 3px 7px;
+}
+
+/* Style for photos on page 2. Large images desired for a gallery type of feel */
+.p2photo {
+    width: 200px;
+}
+
+/* Hovering over an image thumbnail will give a glowing effect
+Adapted from: https://www.w3schools.com/howto/howto_css_thumbnail.asp */
+.p2photo:hover {
+    box-shadow: 0 0 8px 4px rgba(252, 0, 0, 0.5);
+  }
+
+/* Even more about me styling. Gave it a different background and border colour since the contents in the div are very different */
+/* Selecting colours much easier when using Visual Studio Code! */
+.links {
+    background-color: #e0e0ff;
+    border-color: #4848c5;
+    text-align: center;
+}
+
+/* Specific styling of anchors within the links class div. Some extra margin added to left and right sides so the spacing looks better. Colour matches the theme of the website */
+.links a {
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin-right: 20px;
+    background-color: rgb(51, 51, 51);
+    border-radius: 25px;
+    padding: 3px 7px 3px 7px;
+}
+
+/* Modea styling
+Adapted from: https://sabe.io/tutorials/how-to-create-modal-popup-box */
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+}
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+.close-button:hover {
+    background-color: darkgray;
+}
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Eric McNeill Photography Sample</title>
+<meta charset="UTF-8">
+<meta name="description" content="The photography page of the virtual resume detailing the professional history of Eric McNeill">
+<meta name="keywords" content="Resume, Eric, McNeill, Photography">
+<meta name="author" content="Eric McNeill">
+<!-- Link to stle sheet used for both pages -->
+<link rel="stylesheet" type="text/css" href="styles2.css">
+</head>
+
+<body onload="toggleModal()">
+
+    <!-- Modal window informing user about the purpose of the page
+	Adapted from: https://sabe.io/tutorials/how-to-create-modal-popup-box-->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p>Welcome to the photography sample page of Eric McNeill's virtual resume!</p>
+            <div></div>
+            <p>Click on any of the thumbnails to open the full-sized photo</p>
+        </div>
+    </div>
+
+<!-- Title block -->
+<!-- Exact same as home page -->
+<div class="titlebg">
+	<h1>Eric McNeill</h1>
+	<p class="titlep">Professional Experience and Virtual Resume</p>
+</div>
+
+<!-- Naviagation bar -->
+<!-- Exact same as home page -->
+<div class="navigation">
+	<a href="index2.html">Home</a>
+	<a href="photography2.html">Photography</a>
+</div>
+
+<!-- Photography block-->
+<!-- All use same class made for this page -->
+<!-- New functionality added where clicking on the thumbnail will open the image in a new tab
+Adapted from: https://www.w3schools.com/howto/howto_css_thumbnail.asp-->
+<div class="section2">
+<a target="_blank" href="../Images/Wildlife/DSC_0770.JPG">
+    <img class="p2photo" alt="EM snake" src="../Images/Wildlife/DSC_0770.JPG">
+</a>
+<a target="_blank" href ="../Images/Wildlife/DSC_1117.JPG">
+    <img class="p2photo" alt="EM catdog" src="../Images/Wildlife/DSC_1117.JPG">
+</a>
+<a target="_blank" href ="../Images/Wildlife/DSC_1406.JPG">
+    <img class="p2photo" alt="EM Nepal mountain" src="../Images/Wildlife/DSC_1406.JPG">
+</a>
+<a target="_blank" href ="../Images/Wildlife/DSC_1412.JPG">
+    <img class="p2photo" alt="EM Nepal river" src="../Images/Wildlife/DSC_1412.JPG">
+</a>
+<a target="_blank" href ="../Images/Wildlife/DSC_1553.JPG">
+    <img class="p2photo" alt="EM turtle" src="../Images/Wildlife/DSC_1553.JPG">
+</a>
+<a target="_blank" href ="../Images/Wildlife/DSC_1623.JPG">
+    <img class="p2photo" alt="EM owl" src="../Images/Wildlife/DSC_1623.JPG">
+</a>
+<a target="_blank" href ="../Images/Wildlife/DSC_1655.JPG">
+    <img class="p2photo" alt="EM mongoose" src="../Images/Wildlife/DSC_1655.JPG">
+</a>
+<a target="_blank" href ="../Images/Wildlife/DSC_1682.JPG">
+    <img class="p2photo" alt="EM jackal" src="../Images/Wildlife/DSC_1682.JPG">
+</a>
+<a target="_blank" href ="../Images/Wildlife/DSC_1701.JPG">
+    <img class="p2photo" alt="EM tiger" src="../Images/Wildlife/DSC_1701.JPG">
+</a>
+</div>
+
+<script>
+    // Controls the modal window that informs the user about the purpose of the page
+    // Adapted from: https://sabe.io/tutorials/how-to-create-modal-popup-box
+    var modal = document.querySelector(".modal");
+        var trigger = document.querySelector(".trigger");
+        var closeButton = document.querySelector(".close-button");
+    
+        function toggleModal() {
+            modal.classList.toggle("show-modal");
+        }
+    
+        function windowOnClick(event) {
+            if (event.target === modal) {
+                toggleModal();
+            }
+        }
+    
+        closeButton.addEventListener("click", toggleModal);
+        window.addEventListener("click", windowOnClick);
+    </script>
+
+</body>
+</html>

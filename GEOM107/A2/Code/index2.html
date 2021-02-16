@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Note: All photos are mine, so no sources are specified -->
+<!-- Items I would like to be marked (for part 3): 5 or more unique images, Navigation bars, At least 2 external links -->
+
+<head>
+
+<title>Eric McNeill Virtual Resume</title>
+<meta charset="UTF-8">
+<meta name="description" content="The main page of the virtual resume detailing the professional history of Eric McNeill">
+<meta name="keywords" content="Resume, Eric, McNeill, Photography">
+<meta name="author" content="Eric McNeill">
+<!-- Link to stle sheet used for both pages -->
+<link rel="stylesheet" href="styles2.css">
+
+</head>
+
+<!-- The modal loads as soon as the body section has finished loading -->
+<body onload="toggleModal()">
+
+	<!-- Modal window informing user about the purpose of the page
+	Adapted from: https://sabe.io/tutorials/how-to-create-modal-popup-box-->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p>Welcome to Eric McNeill's virtual resume! On this page you will find three sections:</p>
+				<div></div>
+				<h2>About Me</h2>
+				<p>A little about myself</p>
+				<div></div>
+				<h2>Select Projects</h2>
+				<p>Several projects I have worked worked on with a short description</p>
+				<div></div>
+				<h2>Even More About Me</h2>
+				<p>Links to other websites with some additional information about myself</p>
+        </div>
+    </div>
+
+<div class="modal">
+	<h2>Hello, I am a modal!</h2>
+</div>
+
+<!-- Title block -->
+<div class="titlebg">
+	<h1>Eric McNeill</h1>
+	<p class="titlep">Professional Experience and Virtual Resume</p>
+</div>
+
+<!-- Naviagation bar -->
+<!-- Home page and Photography page -->
+<div class="navigation">
+	<a href="index2.html">Home</a>
+	<a href="photography2.html">Photography</a>
+</div>
+
+<!-- About me block -->
+<!-- Same general structure used throughout the website. h2 is put outside of other divs so it is above and center. See CSS stylesheet for divided class -->
+<div class="section">
+	<h2>About Me</h2>
+	<div class="divided">
+		<div>
+			<img class="p1image" alt="EM profile" src="../Images/DSCF4536.JPG">
+		</div>
+		<div>
+			<p>I have always been passionate about nature and have shaped my career to study and protect it. I obtained a BSc in Zoology and a MSc in Ecology both from the Univeristy of Guelph. I have had the pleasure of working in several continents throughout the world to study and address pertinent
+			wildlife conservation issues. Each and every protected area I have worked in is unique and thus allowed me the opporunity to practice a diversity of approaches to solving these issues. However, one common aspect
+			within all projects of my work was the application of geomatics. To put it simply, I love the work involved with geomatics and recognize the crucial role it plays to successful delivery of a conservation program.
+			For these reasons I have decided to develop my skills further in this discipline by enrolling in the GIS - Cartographic Specialist graduate program at Fleming College, Ont, Canada.</p>
+			<p>In my spare time I enjoy practicing wildlife photography. Please feel free to take a look at some of my photos!</p>
+		</div>
+	</div>
+</div>
+
+<!-- Select projects blocks -->
+<!-- Same general structure as about me section. h3 tag used for names of projects (put inside same div as p so the alignment looks good beside the image) -->
+<!-- Block structure repeated for every project -->
+<div class="section" id="projects">
+	<h2>Select Projects</h2>
+	<div class="divided">
+		<div>
+			<img class="p1image" alt="Manas Tigers analytical team" src="../Images/DSC_1097.JPG">
+		</div>
+		<div>
+			<h3>Manas Tigers</h3>
+			<p>Panthera's Tigers Forever program identified several key tiger recovery sites accross Asia
+				requiring strong support to mitigate the threats they face. My first assignment in this program
+				was at Manas National Park, India, where I specialized in working with anti-poaching law
+				enforcement stakeholders in the field to understand and tailor responses to wildlife threats.
+				In my role as an analyst within the site-based analytical team, we supported anti-poaching law
+				enforcement personnel by providing detailed analyses of wildlife crime patterns, evaluations
+				of operational outcomes, strategic planning, training, and technological support.</p>
+		</div>
+	</div>
+	<div class="divided">
+		<div>
+			<img class="p1image" alt="Field Sensors title page" src="../Images/smart_field_sensors.png">
+		</div>
+		<div>
+			<h3>Field Sensors</h3>
+			<p>The Spatial Monitoring and Reporting Tool (SMART) is open source software providing
+				site-based conservation programs the means to manage patrol data effectively. Over
+				the last decade field sensors (e.g. camera-traps and acoustic detectors) have become
+				an increasingly important anti-poaching law enforcement tool, thus warranting the
+				need for development on a field-sensor data specific management system. In my
+				position on the SMART User's Council, I authored the first handbook covering the 
+				use and capabilites of the newly developed SMART Field Sensors Plugin. In addition
+				to this I was involved in implementing the first version of Field Sensors in Malaysia 
+				and providing feedback.</p>
+		</div>
+	</div>
+	<div class="divided">
+		<div>
+			<img class="p1image" alt="OpWall processing camera imagery" src="../Images/12615427_491116407735034_5356999677062791567_o.jpg">
+		</div>
+		<div>
+			<h3>Operation Wallacea Honduras</h3>
+			<p>Operation Wallacea runs a diverse research program in the cloud forests of El Cusuco National
+				Park, Hounduras, which is a biodiversity hotspot possessing an exceptional number of
+				endemic species. Over two field seasons as camera trapping scientist I hiked over the
+				mountaineous terrain setting up camera-traps to estimate population densities of elusive
+				mammalian megafauna with a special focus on Baird's Tapir (Tapirus bairdii). Due to threats
+				such as deforestation and poaching, the estimates we recieve from camera-trapped images
+				provide a baseline to evaluate population health over time.</p>
+		</div>
+	</div>
+	<div class="divided">
+		<div>
+			<img class="p1image" alt="Field work" src="../Images/10404112_10152977513537578_5561697205152685266_n.jpg">
+		</div>
+		<div>
+			<h3>Woodland Caribou Recovery</h3>
+			<p>As part of Ontario's Woodland Caribou (Rangifer tarandus caribou), I researched 
+				patterns of caribou forage selection accross multiple spatiotemporal scales in
+				northern Ontario. Ground vegetation surveys were performed at the locations
+				where caribou were known to have foraged in as determined from the hundreds of 
+				hours of animal-borne video footage. Resource selection functions were estimated 
+				to determine the nature of foraging selection patterns accross space and time, 
+				providing a framework to better understand how we evaulaute which resources are
+				critical for the peristence of a population.</p>
+		</div>
+	</div>
+</div>
+
+<!-- Even more about me block -->
+<!-- Uses 2 classes (section and links). section does the sizing work while links does the colour (overrides some things) and text alignment -->
+<!-- Multiple classes technique learned from https://css-tricks.com/multiple-class-id-selectors/ -->
+<div class="section links">
+	<h2>Even More About Me</h2>
+	<!-- Open a link in a new tab https://www.w3schools.com/tags/att_a_target.asp -->
+	<a href="https://www.panthera.org/blog/2018/10/09/land-tigers-and-rhinos" target="_blank">Panthera blog post</a>
+	<a href="https://www.linkedin.com/in/eric-mcneill-7bb3bb129/" target="_blank">LinkedIn profile</a>
+	<a href="https://cdnsciencepub.com/doi/full/10.1139/cjz-2019-0197" target="_blank">Research publication</a>
+</div>
+
+<script>
+// Controls the modal window that informs the user about the purpose of the page
+// Adapted from: https://sabe.io/tutorials/how-to-create-modal-popup-box
+var modal = document.querySelector(".modal");
+    var trigger = document.querySelector(".trigger");
+    var closeButton = document.querySelector(".close-button");
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+
+    closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick);
+</script>
+
+</body>
+</html>
