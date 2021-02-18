@@ -1,0 +1,115 @@
+<html>
+  <!-- All code in this document was provided from the tutorial at: https://developers.arcgis.com/javascript/latest/find-places/ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>ArcGIS API for JavaScript Tutorials: Display a map</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.18/"></script>
+
+    <script>
+        require(["esri/config","esri/Map", "esri/views/MapView", "esri/tasks/Locator", "esri/Graphic"], function (esriConfig, Map, MapView, Locator, Graphic) {
+  
+            esriConfig.apiKey = "AAPK2d032012bd6c492a9ee0187fa16d0fb2DoiS0soQ8qjDUMmpHIfFTsQF0z7R789Ey2dHjglMaErh4AqAx5Vx_bLNgGYltBWg";
+
+        const map = new Map({
+          // Changed to streets (night) basemap
+          basemap: "arcgis-streets-night" // Basemap layer service
+        });
+
+        const view = new MapView({
+          map: map,
+          // Changed to center on Toronto with an appropriate zoom level
+          center: [-79.4869, 43.7282], // Longitude, latitude
+          zoom: 10, // Zoom level
+          container: "viewDiv" // Div element
+        });
+
+        // Changed categoies to nightlife options (category level 3)
+        const places = ["Select nightlife category...", "Bar or Pub", "Dancing", "Karaoke", "Night Club", "Nightlife"];
+
+        const select = document.createElement("select","");
+          select.setAttribute("class", "esri-widget esri-select");
+          // Made the text and length of search box a little bigger
+          select.setAttribute("style", "width: 300px; font-family: 'Avenir Next W00'; font-size: 1.5em");
+
+        places.forEach(function(p){
+          const option = document.createElement("option");
+          option.value = p;
+          option.innerHTML = p;
+          select.appendChild(option);
+      });
+
+        // Changed it to top left to be with the other zoom buttons
+        view.ui.add(select, "top-left");
+
+        const locator = new Locator({
+          url: "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
+      });
+
+        // Find places and add them to the map
+        function findPlaces(category, pt) {
+        locator.addressToLocations({
+          location: pt,
+          categories: [category],
+          // Max number of locations that will be rendered bumped up to 50
+          maxLocations: 50,
+          outFields: ["Place_addr", "PlaceName"]
+      })
+
+      .then(function(results) {
+      view.popup.close();
+      view.graphics.removeAll();
+
+      results.forEach(function(result){
+        view.graphics.add(
+          new Graphic({
+            attributes: result.attributes,  // Data attributes returned
+            geometry: result.location, // Point returned
+            symbol: {
+             type: "picture-marker",
+             url: "../Images/beersymbol.png",
+             width: "50px",
+             height: "50px"
+            },
+
+            popupTemplate: {
+              title: "{PlaceName}", // Data attribute names
+              content: "{Place_addr}"
+            }
+         }));
+      });
+
+    });
+    }
+    // Search for places in center of map
+  view.watch("stationary", function(val) {
+    if (val) {
+       findPlaces(select.value, view.center);
+    }
+    });
+
+    // Listen for category changes and find places
+  select.addEventListener('change', function (event) {
+    findPlaces(event.target.value, view.center);
+  });
+    });
+    </script>
+
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>

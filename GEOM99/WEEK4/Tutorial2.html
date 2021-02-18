@@ -1,0 +1,62 @@
+<html>
+  <!-- All code in this document is provided from the tutorial at: https://developers.arcgis.com/javascript/latest/display-your-location/ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>ArcGIS API for JavaScript Tutorials: Display a map</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.18/"></script>
+
+    <script>
+        require(["esri/config","esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Track", "esri/Graphic"], function (esriConfig, Map, MapView, Locate, Track, Graphic) {
+  
+            esriConfig.apiKey = "AAPK2d032012bd6c492a9ee0187fa16d0fb2DoiS0soQ8qjDUMmpHIfFTsQF0z7R789Ey2dHjglMaErh4AqAx5Vx_bLNgGYltBWg";
+
+        const map = new Map({
+          basemap: "arcgis-navigation" // Basemap layer service
+        });
+
+        const view = new MapView({
+          map: map,
+          center: [-40, 28], // Longitude, latitude
+          zoom: 2, // Zoom level
+          container: "viewDiv" // Div element
+        });
+
+        const track = new Track({
+          view: view,
+          graphic: new Graphic({
+            symbol: {
+              type: "simple-marker",
+              size: "12px",
+              color: "green",
+              outline: {
+                color: "#efefef",
+                width: "1.5px"
+              }
+            }
+          }),
+          useHeadingEnabled: false
+        });
+        view.ui.add(track, "top-left");
+
+    });
+    </script>
+
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
