@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>ArcGIS API for JavaScript Tutorials: Display a map</title>
+    <title>Bars, Clubs, and Other Nightlife of Toronto</title>
 
     <style>
       html,
@@ -78,11 +78,12 @@
           new Graphic({
             attributes: result.attributes,  // Data attributes returned
             geometry: result.location, // Point returned
+            // Changed the symbol to a custom made one that I felt was appropriate
             symbol: {
              type: "picture-marker",
              url: "https://epmcneill.github.io/GEOM99/WEEK4/Images/beersymbol.png",
-             width: "50px",
-             height: "50px"
+             width: "35px",
+             height: "40px"
             },
 
             popupTemplate: {
