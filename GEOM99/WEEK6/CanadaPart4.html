@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- ArcGIS JS content was derived following the tutorial at: https://developers.arcgis.com/javascript/latest/add-a-point-line-and-polygon/ -->
+    <!-- Additional pages on the ArcGIS Developers were used to apply certain techniques as well -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Provinces of Canada</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+
+      .titleBanner {
+          background-color: rgb(255, 255, 255);
+          height: 200px;
+          text-align: center;
+          width: 70%;
+          margin-left: auto;
+          margin-right: auto; 
+      }
+
+      .CW {
+        background-color: #7c0a0a;
+        height: 200px;
+        width: 15%;
+      }
+
+      .divContainer {
+        display: flex;
+      }
+
+      h1 {
+          margin-top: 0;
+          padding-top: 40px;
+          margin-bottom: 0px;
+          font-size: 70px;
+          text-shadow: 0 0 2px #000000;
+          color: #7c0a0a;
+      }
+
+      .title1 {
+          margin-top: 10px;
+          font-size: 30px;
+          text-shadow: 0 0 1px #000000;
+          color: #4b0202;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.18/"></script>
+
+    <script>
+      require(["esri/config","esri/Map", "esri/views/MapView","esri/Graphic","esri/layers/GraphicsLayer","esri/layers/FeatureLayer"], function (esriConfig,Map, MapView, Graphic, GraphicsLayer, FeatureLayer) {
+
+        esriConfig.apiKey = "AAPK2d032012bd6c492a9ee0187fa16d0fb2DoiS0soQ8qjDUMmpHIfFTsQF0z7R789Ey2dHjglMaErh4AqAx5Vx_bLNgGYltBWg";
+
+        const map = new Map({
+          basemap: "oceans" // Basemap layer service
+        });
+
+        // Map center and zoom adjusted appropriately
+        const view = new MapView({
+          map: map,
+          center: [-100.7, 65], // Longitude, latitude
+          zoom: 3, // Zoom level
+          container: "viewDiv" // Div element
+        });
+
+        // Graphics Layer
+        const graphicsLayer = new GraphicsLayer();
+        map.add(graphicsLayer);
+
+        // Points added for all province capitals
+        const pointOW = {
+            type: "point",
+            longitude: -75.6972,
+            latitude: 45.4215
+         };
+
+        const pointTO = {
+            type: "point",
+            longitude: -79.3832,
+            latitude: 43.6532
+         };
+
+        const pointSJ = {
+            type: "point",
+            longitude: -52.7126,
+            latitude: 47.5615
+         };
+
+        const pointHA = {
+            type: "point",
+            longitude: -63.5752,
+            latitude: 44.6488
+         };
+
+        const pointFR = {
+            type: "point",
+            longitude: -66.6431,
+            latitude: 45.9636
+         };
+
+        const pointCT = {
+            type: "point",
+            longitude: -63.1311,
+            latitude: 46.2382
+         };
+
+        const pointQC = {
+            type: "point",
+            longitude: -71.2080,
+            latitude: 46.8139
+         };
+
+        const pointWP = {
+            type: "point",
+            longitude: -97.1384,
+            latitude: 49.8951
+         };
+
+         const pointRG = {
+            type: "point",
+            longitude: -104.6189,
+            latitude: 50.4452
+         };
+
+         const pointED = {
+            type: "point",
+            longitude: -113.4938,
+            latitude: 53.5461
+         };
+
+         const pointVT = {
+            type: "point",
+            longitude: -123.3656,
+            latitude: 48.4284
+         };
+
+         const pointIQ = {
+            type: "point",
+            longitude: -68.5170,
+            latitude: 63.7467
+         };
+
+         const pointYW = {
+            type: "point",
+            longitude: -114.3718,
+            latitude: 62.4540
+         };
+
+         const pointWH = {
+            type: "point",
+            longitude: -135.0568,
+            latitude: 60.7212
+         };
+
+        // Colours adjusted
+        const simpleMarkerSymbol = {
+            type: "simple-marker",
+            color: [255, 0, 0],
+            outline: {
+                color: [0, 0, 0],
+                width: 1
+        }
+    };
+
+        const pointGraphicOW = new Graphic({
+            geometry: pointOW,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesOW,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicOW);
+
+        const pointGraphicTO = new Graphic({
+            geometry: pointTO,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesTO,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicTO);
+
+        const pointGraphicSJ = new Graphic({
+            geometry: pointSJ,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesSJ,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicSJ);
+
+        const pointGraphicHA = new Graphic({
+            geometry: pointHA,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesHA,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicHA);
+
+        const pointGraphicFR = new Graphic({
+            geometry: pointFR,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesFR,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicFR);
+
+        const pointGraphicCT = new Graphic({
+            geometry: pointCT,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesCT,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicCT);
+
+        const pointGraphicQC = new Graphic({
+            geometry: pointQC,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesQC,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicQC);
+
+        const pointGraphicWP = new Graphic({
+            geometry: pointWP,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesWP,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicWP);
+
+        const pointGraphicRG = new Graphic({
+            geometry: pointRG,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesRG,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicRG);
+
+        const pointGraphicED = new Graphic({
+            geometry: pointED,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesED,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicED);
+
+        const pointGraphicVT = new Graphic({
+            geometry: pointVT,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesVT,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicVT);
+
+        const pointGraphicIQ = new Graphic({
+            geometry: pointIQ,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesIQ,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicIQ);
+
+        const pointGraphicYW = new Graphic({
+            geometry: pointYW,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesYW,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicYW);
+
+        const pointGraphicWH = new Graphic({
+            geometry: pointWH,
+            symbol: simpleMarkerSymbol,
+
+            attributes: attributesWH,
+            popupTemplate: popupTemplate
+        });
+        graphicsLayer.add(pointGraphicWH);
+
+        // This is where I connect the REST url to a new constant which is then added the map (users need to log in to access it)
+        const featureL1 = new FeatureLayer({
+            url: "https://luna.flemingcollege.ca/arcgis/rest/services/Geom99lab2/erimcneiCanada/MapServer",
+            blendMode: "average"
+        });
+
+        map.add(featureL1);
+
+    });
+
+      const popupTemplate = {
+        title: "{Name}",
+        content: "{Description}"
+    }
+      const attributesOW = {
+        Name: "Ottawa",
+        Description: "Hello there! I am the Capital of Canada!"
+      }
+
+      const attributesTO = {
+        Name: "Toronto",
+        Description: "Hello there! I am the Capital of Ontario!"
+      }
+
+      const attributesSJ = {
+        Name: "St. Johns",
+        Description: "Hello there! I am the Capital of Newfoundland and Labrador!"
+      }
+
+      const attributesHA = {
+        Name: "Halifax",
+        Description: "Hello there! I am the Capital of Noca Scotia!"
+      }
+
+      const attributesFR = {
+        Name: "Fredericton",
+        Description: "Hello there! I am the Capital of New Brunswick!"
+      }
+    
+      const attributesCT = {
+        Name: "Charlottetown",
+        Description: "Hello there! I am the Capital of Prince Edward Island!"
+      }
+
+      const attributesQC = {
+        Name: "Quebec City",
+        Description: "Hello there! I am the Capital of Quebec!"
+      }
+
+      const attributesWP = {
+        Name: "Winnipeg",
+        Description: "Hello there! I am the Capital of Manitoba!"
+      }
+
+      const attributesRG = {
+        Name: "Regina",
+        Description: "Hello there! I am the Capital of Saskatchewan!"
+      }
+
+      const attributesED = {
+        Name: "Edmonton",
+        Description: "Hello there! I am the Capital of Alberta!"
+      }
+
+      const attributesVT = {
+        Name: "Victoria",
+        Description: "Hello there! I am the Capital of British Columbia!"
+      }
+
+      const attributesIQ = {
+        Name: "Iqaluit",
+        Description: "Hello there! I am the Capital of Nunavut!"
+      }
+
+      const attributesYW = {
+        Name: "Yellowknife",
+        Description: "Hello there! I am the Capital of Northwest Territories!"
+      }
+
+      const attributesWH = {
+        Name: "Whitehorse",
+        Description: "Hello there! I am the Capital of Yukon!"
+      }
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="divContainer">
+    <div class="CW"></div>
+    <div class="titleBanner">
+      <h1>Provinces of Canada</h1>
+      <p class="title1">Educational Learning Tool</p>
+    </div>
+    <div class="CW"></div>
+    </div>
+
+    <div id="viewDiv"></div>
+
+  </body>
+</html>
